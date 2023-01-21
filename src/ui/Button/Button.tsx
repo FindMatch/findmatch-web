@@ -1,6 +1,7 @@
 import cn from 'classnames';
 
 import s from './Button.module.css';
+import { ButtonColor, ButtonSize } from './Button.types';
 
 interface ButtonProps {
   /**
@@ -11,12 +12,12 @@ interface ButtonProps {
   /**
    * Color del botón.
    */
-  color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  color?: ButtonColor;
 
   /**
    * Tamaño del botón.
    */
-  size?: 'small' | 'normal' | 'large' | 'block';
+  size?: ButtonSize;
 
   /**
    * Marca el botón como deshabilitado.
