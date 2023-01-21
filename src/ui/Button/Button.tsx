@@ -1,7 +1,10 @@
 import cn from 'classnames';
+import { useEffect, useState } from 'react';
+
+import { UISize, UIColor } from '../../common/types';
+import { Spinner } from '../Spinner';
 
 import s from './Button.module.css';
-import { ButtonColor, ButtonSize } from './Button.types';
 
 interface ButtonProps {
   /**
@@ -12,12 +15,12 @@ interface ButtonProps {
   /**
    * Color del botón.
    */
-  color?: ButtonColor;
+  color?: UIColor;
 
   /**
    * Tamaño del botón.
    */
-  size?: ButtonSize;
+  size?: UISize;
 
   /**
    * Marca el botón como deshabilitado.
@@ -28,6 +31,21 @@ interface ButtonProps {
    * Convierte el texto del botón a mayúsculas.
    */
   upper?: boolean;
+
+  /**
+   * Indica si se debe mostrar el loading.
+   */
+  loading?: boolean;
+
+  /**
+   * Extiende las clases personalizadas del componente padre.
+   */
+  className?: string;
+
+  /**
+   * Extiende los estilos personalizados del componente padre.
+   */
+  style?: React.CSSProperties;
 
   /**
    * Función onClick del botón.
@@ -44,15 +62,33 @@ export const Button = ({
   size = 'normal',
   disabled = false,
   upper = false,
+  loading = false,
+  className,
+  style,
   onClick = () => {}
 }: ButtonProps) => {
+  const [labelText, setLabelText] = useState<JSX.Element | string>();
+
+  useEffect(() => {
+    handleTextButton();
+  }, [loading, upper]);
+
+  const handleTextButton = () => {
+    if (loading) {
+      setLabelText(<Spinner color="light" size="button" />);
+    } else {
+      setLabelText(upper ? label.toUpperCase() : label);
+    }
+  };
+
   return (
     <button
-      className={cn(s.btn, s[`btn--${color}`], s[`btn--${size}`])}
+      style={{ ...style }}
+      className={cn(s.btn, s[`btn--${color}`], s[`btn--${size}`], className)}
       disabled={disabled}
       onClick={() => onClick()}
     >
-      {upper ? label.toUpperCase() : label}
+      {labelText}
     </button>
   );
 };

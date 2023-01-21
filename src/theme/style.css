@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Sofia+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 @import './reset.css';
 
 :root {
   /* Colores */
-  --primary: #130623;
-  --secondary: #ea7e5d;
-  --success: #479a73;
-  --warning: #f5bc00;
-  --danger: #b10f2e;
+  --primary: #57bdc0;
+  --secondary: #000537;
+  --success: #20bf55;
+  --warning: #d9c34c;
+  --danger: #df2935;
 
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
@@ -20,21 +20,39 @@
   --gray-800: #1f2937;
   --gray-900: #111827;
 
+  /* Colores de fondos y textos */
+  --bg-img-gradient-primary: linear-gradient(
+    to bottom,
+    #4ebad8,
+    #51bdcb,
+    #5fc0bd,
+    #71c1af,
+    #85c1a3
+  );
+  --bg-img-gradient-secondary: linear-gradient(
+    to right top,
+    #393f57,
+    #3e445c,
+    #444a61,
+    #494f67,
+    #4f556c
+  );
   --bg-color: ##efeffb;
+  --text-color: #000537;
 
   /* Fuentes */
   --font-light: 300;
   --font-regular: 400;
   --font-medium: 500;
 
-  --font-family: 'Sofia Sans', sans-serif;
+  --font-family: 'Rubik', sans-serif;
   --font-default-size: 16px;
 }
 
 html,
 body {
   background-color: var(--bg-color);
-  color: var(--gray-900);
+  color: var(--text-color);
 
   font-family: var(--font-family);
   font-weight: var(--font-regular);

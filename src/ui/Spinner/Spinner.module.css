@@ -1,0 +1,59 @@
+.loader {
+  animation: spin 1s linear infinite;
+  border-color: transparent;
+  border-radius: 50%;
+  border-style: solid;
+}
+
+/* Colors */
+.loader.loader--primary {
+  border-top-color: var(--primary);
+}
+
+.loader.loader--secondary {
+  border-top-color: var(--secondary);
+}
+
+.loader.loader--success {
+  border-top-color: var(--success);
+}
+
+.loader.loader--warning {
+  border-top-color: var(--warning);
+}
+
+.loader.loader--danger {
+  border-top-color: var(--danger);
+}
+
+.loader.loader--light {
+  border-top-color: var(--gray-50);
+}
+
+/* Sizes */
+.loader.loader--button {
+  border-width: 2px;
+  height: 20px;
+  width: 20px;
+}
+
+.loader.loader--normal {
+  border-width: 6px;
+  height: 40px;
+  width: 40px;
+}
+
+.loader.loader--screen {
+  border-width: 8px;
+  height: 70px;
+  width: 70px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

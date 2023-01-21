@@ -1,11 +1,13 @@
 .btn {
+  align-items: center;
   border-radius: 0.25rem;
   border: none;
   color: var(--gray-50);
   cursor: pointer;
-  display: inline-block;
+  display: flex;
   font-size: 1rem;
   font-weight: var(--font-medium);
+  justify-content: center;
   transition: 0.2s ease;
 }
 
@@ -14,7 +16,7 @@
   filter: brightness(0.9);
 }
 
-/* Colores */
+/* Colors */
 .btn.btn--primary {
   background-color: var(--primary);
   border: 2px solid var(--primary);
@@ -40,32 +42,39 @@
   border: 2px solid var(--danger);
 }
 
-/* Tamaños */
+/* Sizes */
 .btn.btn--small {
-  padding: 0.125rem 0.625rem;
   font-size: 0.875rem;
+  min-height: calc(0.125rem + 1rem);
+  min-width: 80px;
+  padding: 0.125rem 0.625rem;
 }
 
 .btn.btn--normal {
-  padding: 0.375rem 0.875rem;
+  min-height: 36px;
+  min-width: 100px;
+  padding: 0.25rem 0.875rem;
 }
 
 .btn.btn--large {
   font-size: 1.125rem;
-  padding: 0.5rem 1rem;
+  min-height: calc(0.375rem + 1.125rem);
+  min-width: 120px;
+  padding: 0.375rem 1rem;
 }
 
 .btn.btn--block {
+  font-size: 1.125rem;
+  min-height: calc(0.5rem + 1.125rem);
   padding: 0.5rem 1rem;
   width: 100%;
-  font-size: 1.125rem;
 }
 
 /* Disabled */
 .btn:disabled {
   background-color: var(--gray-400);
-  cursor: not-allowed;
   border: 2px solid var(--gray-400);
+  cursor: not-allowed;
 }
 
 .btn:disabled:hover {
@@ -75,26 +84,36 @@
 
 /* Focus */
 .btn:focus {
+  border-color: var(--gray-500);
   outline: none;
+}
+
+/* Active */
+.btn:active {
   background-color: transparent;
 }
 
-.btn.btn--primary:focus {
+.btn.btn--primary:active {
+  border-color: var(--primary);
   color: var(--primary);
 }
 
-.btn.btn--secondary:focus {
+.btn.btn--secondary:active {
+  border-color: var(--secondary);
   color: var(--secondary);
 }
 
-.btn.btn--success:focus {
+.btn.btn--success:active {
+  border-color: var(--success);
   color: var(--success);
 }
 
-.btn.btn--warning:focus {
+.btn.btn--warning:active {
+  border-color: var(--warning);
   color: var(--warning);
 }
 
-.btn.btn--danger:focus {
+.btn.btn--danger:active {
+  border-color: var(--danger);
   color: var(--danger);
 }
