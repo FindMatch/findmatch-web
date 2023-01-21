@@ -1,6 +1,6 @@
 .btn {
   align-items: center;
-  border-radius: 0.25rem;
+  border-radius: 40px;
   border: none;
   color: var(--gray-50);
   cursor: pointer;
@@ -11,7 +11,7 @@
   transition: 0.2s ease;
 }
 
-.btn:hover {
+.btn:hover:not([disabled]) {
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
   filter: brightness(0.9);
 }
@@ -72,14 +72,8 @@
 
 /* Disabled */
 .btn:disabled {
-  background-color: var(--gray-400);
-  border: 2px solid var(--gray-400);
+  filter: contrast(0.6);
   cursor: not-allowed;
-}
-
-.btn:disabled:hover {
-  box-shadow: none;
-  filter: none;
 }
 
 /* Focus */
@@ -89,31 +83,31 @@
 }
 
 /* Active */
-.btn:active {
+.btn:active:not([disabled]) {
   background-color: transparent;
 }
 
-.btn.btn--primary:active {
+.btn.btn--primary:active:not([disabled]) {
   border-color: var(--primary);
   color: var(--primary);
 }
 
-.btn.btn--secondary:active {
+.btn.btn--secondary:active:not([disabled]) {
   border-color: var(--secondary);
   color: var(--secondary);
 }
 
-.btn.btn--success:active {
+.btn.btn--success:active:not([disabled]) {
   border-color: var(--success);
   color: var(--success);
 }
 
-.btn.btn--warning:active {
+.btn.btn--warning:active:not([disabled]) {
   border-color: var(--warning);
   color: var(--warning);
 }
 
-.btn.btn--danger:active {
+.btn.btn--danger:active:not([disabled]) {
   border-color: var(--danger);
   color: var(--danger);
 }

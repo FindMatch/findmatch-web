@@ -1,0 +1,23 @@
+.icon--primary {
+  fill: var(--primary);
+}
+
+.icon--secondary {
+  fill: var(--secondary);
+}
+
+.icon--success {
+  fill: var(--success);
+}
+
+.icon--warning {
+  fill: var(--warning);
+}
+
+.icon--danger {
+  fill: var(--danger);
+}
+
+.icon--light {
+  fill: var(--gray-50);
+}

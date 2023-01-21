@@ -1,8 +1,11 @@
-import cn from 'classnames';
 import { useEffect, useState } from 'react';
+import cn from 'classnames';
 
 import { UISize, UIColor } from '../../common/types';
 import { Spinner } from '../Spinner';
+
+import { Icons } from '../Icon/Icon.enum';
+import { Icon } from '../Icon/Icon';
 
 import s from './Button.module.css';
 
@@ -38,6 +41,11 @@ interface ButtonProps {
   loading?: boolean;
 
   /**
+   * Icono que se mostrara en el botón.
+   */
+  icon?: Icons;
+
+  /**
    * Extiende las clases personalizadas del componente padre.
    */
   className?: string;
@@ -63,6 +71,7 @@ export const Button = ({
   disabled = false,
   upper = false,
   loading = false,
+  icon,
   className,
   style,
   onClick = () => {}
@@ -71,7 +80,7 @@ export const Button = ({
 
   useEffect(() => {
     handleTextButton();
-  }, [loading, upper]);
+  }, [loading, upper, icon]);
 
   const handleTextButton = () => {
     if (loading) {
@@ -79,13 +88,22 @@ export const Button = ({
     } else {
       setLabelText(upper ? label.toUpperCase() : label);
     }
+
+    if (!!icon && !loading) {
+      setLabelText(text => (
+        <>
+          <Icon icon={icon} color="light" size={16} style={{ marginRight: '0.25rem' }} />
+          {text}
+        </>
+      ));
+    }
   };
 
   return (
     <button
       style={{ ...style }}
       className={cn(s.btn, s[`btn--${color}`], s[`btn--${size}`], className)}
-      disabled={disabled}
+      disabled={disabled || loading}
       onClick={() => onClick()}
     >
       {labelText}
